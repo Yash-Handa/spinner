@@ -4,12 +4,14 @@ import (
 	"fmt"
 	"testing"
 	"time"
+
+	"github.com/gookit/color"
 )
 
 func TestASCII_16BitSpinners(t *testing.T) {
 	var timmer time.Duration = 5
 	if testing.Verbose() {
-		t.Log("Testing ASCII spinners with 16 Bit Colors (Will work with almost every terminal out there)")
+		t.Log(color.Info.Sprint("Testing ASCII spinners with 16 Bit Colors (Will work with almost every terminal out there)"))
 	}
 
 	if testing.Short() {
@@ -24,7 +26,7 @@ func TestASCII_16BitSpinners(t *testing.T) {
 		t.Run(fmt.Sprintf("Spinner ID=%d", k), func(st *testing.T) {
 			sp, err := New(k, 100*time.Millisecond, func() string { return "The starting text  " }, func() string { return fmt.Sprintf("  Spinner ID = %d", k) }, fmt.Sprintf("Hurray spinner no. %d done", k), Green, Normal)
 			if err != nil {
-				st.Fatalf("%v\n", err)
+				st.Fatal(color.Error.Sprint(err) + "\n")
 			}
 
 			sp.Start()
