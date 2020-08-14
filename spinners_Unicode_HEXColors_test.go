@@ -24,7 +24,7 @@ func TestUnicode_HEXSpinners(t *testing.T) {
 		}
 
 		t.Run(fmt.Sprintf("Spinner ID=%d", k), func(st *testing.T) {
-			sp, err := New(k, 100*time.Millisecond, func() string { return "The starting text  " }, func() string { return fmt.Sprintf("  Spinner ID = %d", k) }, fmt.Sprintf("Hurray spinner no. %d done", k), "#F89F3D", HexBgNormal)
+			sp, err := New(k, 100*time.Millisecond, func() string { return "The starting text  " }, func() string { return fmt.Sprintf("  Spinner ID = %d", k) }, fmt.Sprintf("Hurray spinner no. %d done", k), randomHexCode(), HexBgNormal)
 			if err != nil {
 				st.Fatal(color.Error.Sprint(err) + "\n")
 			}

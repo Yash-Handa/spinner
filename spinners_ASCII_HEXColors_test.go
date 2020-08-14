@@ -2,6 +2,7 @@ package spinner
 
 import (
 	"fmt"
+	"math/rand"
 	"testing"
 	"time"
 
@@ -24,7 +25,7 @@ func TestASCII_HEXSpinners(t *testing.T) {
 		}
 
 		t.Run(fmt.Sprintf("Spinner ID=%d", k), func(st *testing.T) {
-			sp, err := New(k, 100*time.Millisecond, func() string { return "The starting text  " }, func() string { return fmt.Sprintf("  Spinner ID = %d", k) }, fmt.Sprintf("Hurray spinner no. %d done", k), "#F89F3D", HexBgNormal)
+			sp, err := New(k, 100*time.Millisecond, func() string { return "The starting text  " }, func() string { return fmt.Sprintf("  Spinner ID = %d", k) }, fmt.Sprintf("Hurray spinner no. %d done", k), randomHexCode(), randomHexCode())
 			if err != nil {
 				st.Fatal(color.Error.Sprint(err) + "\n")
 			}
@@ -37,4 +38,15 @@ func TestASCII_HEXSpinners(t *testing.T) {
 			fmt.Println()
 		})
 	}
+}
+
+func randomHexCode() string {
+	rand.Seed(time.Now().UnixNano())
+	r := rand.Intn(256)
+	rand.Seed(13 * time.Now().UnixNano())
+	g := rand.Intn(256)
+	rand.Seed(271 * time.Now().UnixNano())
+	b := rand.Intn(256)
+
+	return fmt.Sprintf("#%02x%02x%02x", r, g, b)
 }
