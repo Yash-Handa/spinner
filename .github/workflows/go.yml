@@ -28,15 +28,16 @@ jobs:
     - name: Get dependencies
       run: |
         go get -v -t -d ./...
-        go mod tidy
 
     - name: Test and Generate coverage report
-      run: go test -short -coverprofile=coverage.txt -covermode=atomic .
+      run: |
+        go mod tidy
+        go test -short -coverprofile=coverage.out -covermode=atomic
         
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
-        file: ./coverage.txt
+        file: ./coverage.out
         env_vars: ${{ matrix.os }},GO
 #         name: codecov-umbrella
 #         path_to_write_report: ./coverage/codecov_report.gz
