@@ -19,7 +19,7 @@ func TestUnicode_16BitSpinners(t *testing.T) {
 	}
 
 	for k := range SpinnerMap {
-		if k < 100 {
+		if k < 1000 {
 			continue
 		}
 

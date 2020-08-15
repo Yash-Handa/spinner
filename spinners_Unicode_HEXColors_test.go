@@ -19,7 +19,7 @@ func TestUnicode_HEXSpinners(t *testing.T) {
 	}
 
 	for k := range SpinnerMap {
-		if k < 100 {
+		if k < 1000 {
 			continue
 		}
 

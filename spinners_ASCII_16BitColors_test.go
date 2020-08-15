@@ -20,7 +20,7 @@ func TestASCII_16BitSpinners(t *testing.T) {
 	}
 
 	for k := range SpinnerMap {
-		if k > 99 {
+		if k > 999 {
 			continue
 		}
 
