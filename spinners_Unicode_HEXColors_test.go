@@ -2,6 +2,8 @@ package spinner_test
 
 import (
 	"fmt"
+	"log"
+	"os"
 	"testing"
 	"time"
 
@@ -10,10 +12,10 @@ import (
 )
 
 func TestUnicode_HEXSpinners(t *testing.T) {
-	var timmer time.Duration = 5
-	if testing.Verbose() {
-		t.Log(color.Info.Sprint("Testing Unicode spinners with Hex Colors (works with utf-8 enabled and 256 colors supported terminals)"))
-	}
+	var timmer time.Duration = 3
+
+	log.SetOutput(os.Stdout)
+	log.Println(color.Info.Sprint("Testing Unicode spinners with Hex Colors (works with utf-8 enabled and 256 colors supported terminals)"))
 
 	if testing.Short() {
 		timmer = 0
@@ -25,14 +27,24 @@ func TestUnicode_HEXSpinners(t *testing.T) {
 		}
 
 		t.Run(fmt.Sprintf("Spinner ID=%d", k), func(st *testing.T) {
-			sp, err := spinner.New(k, 100*time.Millisecond, func() string { return "The starting text  " }, func() string { return fmt.Sprintf("  Spinner ID = %d", k) }, fmt.Sprintf("Hurray spinner no. %d done", k), spinner.RandomHexColor(), spinner.HexBgNormal)
+			sp, err := spinner.New(k, 100*time.Millisecond, spinner.RandomHexColor(), spinner.HexBgNormal)
 			if err != nil {
 				st.Fatal(color.Error.Sprint(err) + "\n")
 			}
 
+			sp.SetPreText("The starting text  ")
+			sp.SetPostText(fmt.Sprintf("  Spinner ID = %d", k))
+			sp.SetDoneText(fmt.Sprintf("Hurray spinner no. %d done", k))
+
 			sp.Start()
 			if timmer != 0 {
 				time.Sleep(timmer * time.Second)
+				sp.SetInterval(300 * time.Millisecond)
+				sp.SetColor(spinner.RandomHexColor(), "")
+				time.Sleep(timmer * time.Second)
+			} else {
+				sp.SetInterval(300 * time.Millisecond)
+				sp.SetColor(spinner.RandomHexColor(), "")
 			}
 			sp.Stop()
 			fmt.Println()

@@ -2,6 +2,7 @@ package spinner
 
 import (
 	"fmt"
+	"strings"
 	"sync"
 	"time"
 
@@ -20,22 +21,30 @@ const (
 	White       = "White"
 	Normal      = "Normal"
 	HexBgNormal = "HexBgNormal"
+	defInerval  = 100 * time.Millisecond
 )
 
 // Spinner yo
 type Spinner struct {
-	id          uint
-	interval    time.Duration
-	preTextGen  func() string
-	postTextGen func() string
-	doneText    string
-	symbols     []string
+	id       uint
+	interval time.Duration
+	preText  string
+	postText string
+	doneText string
+	symbols  []string
+	bg       string
 
-	stopper  *chan bool
-	spinning bool
-	wg       sync.WaitGroup
-	color    color.Style
-	colorRGB *color.RGBStyle
+	stopper    *chan bool
+	calibrator *chan bool
+	spinning   bool
+	wg         sync.WaitGroup
+	wg2        sync.WaitGroup
+	color      color.Style
+	colorRGB   *color.RGBStyle
+
+	// if different go routines update the value use mux
+	prePostMux  sync.Mutex
+	spinningMux sync.Mutex
 }
 
 // GetID yo
@@ -48,13 +57,87 @@ func (s *Spinner) GetInterval() time.Duration {
 	return s.interval
 }
 
+// GetPreText yo
+func (s *Spinner) GetPreText() string {
+	return s.preText
+}
+
+// GetPostText yo
+func (s *Spinner) GetPostText() string {
+	return s.postText
+}
+
+// GetDoneText yo
+func (s *Spinner) GetDoneText() string {
+	return s.doneText
+}
+
 // IsSpinning yo
 func (s *Spinner) IsSpinning() bool {
+	s.spinningMux.Lock()
+	defer s.spinningMux.Unlock()
 	return s.spinning
+}
+
+// SetPreText yo
+func (s *Spinner) SetPreText(pre string) {
+	pre = strings.Trim(pre, "\n\r")
+	s.prePostMux.Lock()
+	s.preText = pre
+	s.prePostMux.Unlock()
+}
+
+// SetPostText yo
+func (s *Spinner) SetPostText(post string) {
+	post = strings.Trim(post, "\n\r")
+	s.prePostMux.Lock()
+	s.postText = post
+	s.prePostMux.Unlock()
+}
+
+// SetDoneText yo
+func (s *Spinner) SetDoneText(done string) {
+	s.doneText = done
+}
+
+// SetInterval yo
+func (s *Spinner) SetInterval(t time.Duration) {
+	if t == 0 {
+		s.interval = defInerval
+	}
+	s.interval = t
+
+	// calibrate the spinner
+	s.calibrate()
+}
+
+// SetColor yo
+func (s *Spinner) SetColor(forground, background string) {
+	if background == "" {
+		background = s.bg
+	}
+	colorSetter(s, forground, background)
+
+	// calibrate the spinner
+	s.calibrate()
+}
+
+// Restart yo
+func (s *Spinner) Restart() {
+	s.Stop()
+	s.Start()
+}
+
+func (s *Spinner) calibrate() {
+	s.wg2.Add(1)
+	*s.calibrator <- true
+	s.wg2.Wait()
 }
 
 // Start yo
 func (s *Spinner) Start() {
+	s.spinningMux.Lock()
+	defer s.spinningMux.Unlock()
 	if s.spinning {
 		return
 	}
@@ -70,6 +153,8 @@ func (s *Spinner) Start() {
 
 // Stop yo
 func (s *Spinner) Stop() {
+	s.spinningMux.Lock()
+	defer s.spinningMux.Unlock()
 	if s.spinning == false {
 		return
 	}
@@ -79,7 +164,7 @@ func (s *Spinner) Stop() {
 }
 
 // New yo
-func New(id uint, interval time.Duration, preTextGen, postTextGen func() string, doneText string, forground, background string) (*Spinner, error) {
+func New(id uint, interval time.Duration, forground, background string) (*Spinner, error) {
 	temp := new(Spinner)
 
 	_, ok := SpinnerMap[id]
@@ -87,23 +172,31 @@ func New(id uint, interval time.Duration, preTextGen, postTextGen func() string,
 		return nil, fmt.Errorf("%d is not a valid id", id)
 	}
 	temp.id = id
-	temp.interval = interval
+
+	if interval == 0 {
+		temp.interval = defInerval
+	} else {
+		temp.interval = interval
+	}
 	temp.symbols = SpinnerMap[id]
 
-	if preTextGen == nil {
-		temp.preTextGen = func() string { return "" }
-	} else {
-		temp.preTextGen = preTextGen
-	}
+	temp.preText = ""
+	temp.postText = ""
+	temp.doneText = ""
 
-	if postTextGen == nil {
-		temp.postTextGen = func() string { return "" }
-	} else {
-		temp.postTextGen = postTextGen
-	}
+	temp.bg = background
+	colorSetter(temp, forground, background)
 
-	temp.doneText = doneText
+	ch := make(chan bool)
+	temp.stopper = &ch
 
+	ch2 := make(chan bool)
+	temp.calibrator = &ch2
+	temp.spinning = false
+	return temp, nil
+}
+
+func colorSetter(temp *Spinner, forground, background string) {
 	fg, bg := color.FgDefault, color.BgDefault
 	// setting empty fgRBG and bgRBG
 	fgRBG, bgRBG := color.HEX("ggg"), color.HEX("ggg")
@@ -130,7 +223,7 @@ func New(id uint, interval time.Duration, preTextGen, postTextGen func() string,
 		// check if it is a hex code...
 		fgRBG = color.HEX(forground, false)
 		if fgRBG.IsEmpty() {
-			return nil, fmt.Errorf("%s is not a valid forground color", forground)
+			fg = color.FgDefault
 		}
 	}
 
@@ -158,12 +251,18 @@ func New(id uint, interval time.Duration, preTextGen, postTextGen func() string,
 		// check if it is a hex code...
 		bgRBG = color.HEX(background, true)
 		if bgRBG.IsEmpty() {
-			return nil, fmt.Errorf("%s is not a valid background color", background)
+			bg = color.BgDefault
 		}
 	}
 
 	if bgRBG.IsEmpty() != fgRBG.IsEmpty() {
-		return nil, fmt.Errorf("both forground and background should be ether Hex or Constant colors not a combination")
+		if bgRBG.IsEmpty() == false {
+			bgRBG = color.HEX("ggg")
+			bg = color.BgDefault
+		} else {
+			fgRBG = color.HEX("ggg")
+			fg = color.FgDefault
+		}
 	}
 
 	if bgRBG.IsEmpty() == false && color.IsSupport256Color() {
@@ -176,9 +275,4 @@ func New(id uint, interval time.Duration, preTextGen, postTextGen func() string,
 		temp.color = color.New(fg, bg)
 		temp.colorRGB = nil
 	}
-
-	ch := make(chan bool)
-	temp.stopper = &ch
-	temp.spinning = false
-	return temp, nil
 }

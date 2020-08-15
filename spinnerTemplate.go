@@ -2,7 +2,6 @@ package spinner
 
 import (
 	"fmt"
-	"strings"
 	"time"
 )
 
@@ -35,22 +34,20 @@ func spinnerTemplate(s *Spinner) {
 			fmt.Printf("\r%*s\r%v", backLen+symbolLen, "", s.doneText)
 			it.Stop()
 			return
+		case <-*(s.calibrator):
+			it.Reset(s.interval)
+			if s.colorRGB != nil {
+				c = s.colorRGB
+			} else {
+				c = s.color
+			}
+			s.wg2.Done()
 		case <-it.C:
 			i = i % l
 			fmt.Printf("\r%*s", backLen+symbolLen, "")
-			pre, post, temp := prePostSanitizer(s.preTextGen, s.postTextGen)
-			backLen = temp
-			fmt.Printf("\r%s%s%s", pre, c.Sprint(s.symbols[i]), post)
-			// fmt.Println(post)
+			backLen = len([]rune(s.preText)) + len([]rune(s.postText))
+			fmt.Printf("\r%s%s%s", s.preText, c.Sprint(s.symbols[i]), s.postText)
 			i++
 		}
 	}
-}
-
-// A helper function to sanitize pre and post strings
-func prePostSanitizer(pre, post func() string) (preStr string, postStr string, l int) {
-	preStr = strings.Trim(pre(), "\n\r")
-	postStr = strings.Trim(post(), "\n\r")
-	l = len([]rune(preStr)) + len([]rune(postStr))
-	return
 }
