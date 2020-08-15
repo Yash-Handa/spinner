@@ -196,6 +196,41 @@ func New(id uint, interval time.Duration, forground, background string) (*Spinne
 	return temp, nil
 }
 
+// Custom yo
+// all custom spinners have id of 0
+func Custom(symbols []string, interval time.Duration, forground, background string) (*Spinner, error) {
+	l := len(symbols[0])
+	for _, str := range symbols {
+		if l != len(str) {
+			return nil, fmt.Errorf("all symbols of the spinner should be of the same length")
+		}
+	}
+	temp := new(Spinner)
+	temp.id = 0
+
+	if interval == 0 {
+		temp.interval = defInerval
+	} else {
+		temp.interval = interval
+	}
+	temp.symbols = symbols
+
+	temp.preText = ""
+	temp.postText = ""
+	temp.doneText = ""
+
+	temp.bg = background
+	colorSetter(temp, forground, background)
+
+	ch := make(chan bool)
+	temp.stopper = &ch
+
+	ch2 := make(chan bool)
+	temp.calibrator = &ch2
+	temp.spinning = false
+	return temp, nil
+}
+
 func colorSetter(temp *Spinner, forground, background string) {
 	fg, bg := color.FgDefault, color.BgDefault
 	// setting empty fgRBG and bgRBG
