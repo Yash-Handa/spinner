@@ -29,5 +29,13 @@ jobs:
       run: |
         go get -v -t -d ./...
 
-    - name: Test
-      run: go test -short .
+    - name: Test and Generate coverage report
+      run: go test -short -coverprofile=coverage.txt -covermode=atomic .
+        
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+        file: ./coverage.txt
+        env_vars: ${{ matrix.os }},GO
+#         name: codecov-umbrella
+#         path_to_write_report: ./coverage/codecov_report.gz
