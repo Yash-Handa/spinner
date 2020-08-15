@@ -28,6 +28,7 @@ jobs:
     - name: Get dependencies
       run: |
         go get -v -t -d ./...
+        go mod tidy
 
     - name: Test and Generate coverage report
       run: go test -short -coverprofile=coverage.txt -covermode=atomic .
