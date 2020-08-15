@@ -35,7 +35,7 @@ jobs:
         go mod tidy
         go test -short -coverprofile=coverage.out -covermode=atomic .
         
-    - name: Test only (Windows)
+    - name: Test and Generate coverage report (Windows)
       if: matrix.os == 'windows-latest'
       shell: cmd
       run: |
@@ -43,7 +43,6 @@ jobs:
         go test -short -coverprofile=coverage.out -covermode=atomic .
         
     - name: Upload coverage to Codecov (ubuntu and mac)
-      if: matrix.os != 'windows-latest'
       uses: codecov/codecov-action@v1
       with:
         file: ./coverage.out
