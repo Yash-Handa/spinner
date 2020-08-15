@@ -47,7 +47,14 @@ func TestUnicode_HEXSpinners(t *testing.T) {
 				sp.SetColor(spinner.RandomHexColor(), "")
 			}
 			sp.Stop()
-			fmt.Println()
+
+			if timmer != 0 {
+				fmt.Println()
+			}
 		})
+	}
+
+	if timmer == 0 {
+		fmt.Println()
 	}
 }
