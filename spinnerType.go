@@ -118,6 +118,8 @@ func New(id uint, interval time.Duration, preTextGen, postTextGen func() string,
 		fg = color.FgBlue
 	case "Magenta":
 		fg = color.FgMagenta
+	case "Yellow":
+		fg = color.FgYellow
 	case "Cyan":
 		fg = color.FgCyan
 	case "White":
@@ -142,6 +144,8 @@ func New(id uint, interval time.Duration, preTextGen, postTextGen func() string,
 		bg = color.BgBlue
 	case "Magenta":
 		bg = color.BgMagenta
+	case "Yellow":
+		bg = color.BgYellow
 	case "Cyan":
 		bg = color.BgCyan
 	case "White":

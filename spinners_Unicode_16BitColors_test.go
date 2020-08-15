@@ -24,7 +24,7 @@ func TestUnicode_16BitSpinners(t *testing.T) {
 		}
 
 		t.Run(fmt.Sprintf("Spinner ID=%d", k), func(st *testing.T) {
-			sp, err := New(k, 100*time.Millisecond, func() string { return "The starting text  " }, func() string { return fmt.Sprintf("  Spinner ID = %d", k) }, fmt.Sprintf("Hurray spinner no. %d done", k), Green, Normal)
+			sp, err := New(k, 100*time.Millisecond, func() string { return "The starting text  " }, func() string { return fmt.Sprintf("  Spinner ID = %d", k) }, fmt.Sprintf("Hurray spinner no. %d done", k), random16BitCode(), Normal)
 			if err != nil {
 				st.Fatal(color.Error.Sprint(err) + "\n")
 			}
