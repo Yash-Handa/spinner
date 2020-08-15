@@ -29,6 +29,7 @@ type Spinner struct {
 	preTextGen  func() string
 	postTextGen func() string
 	doneText    string
+	symbols     []string
 
 	stopper  *chan bool
 	spinning bool
@@ -57,13 +58,12 @@ func (s *Spinner) Start() {
 	if s.spinning {
 		return
 	}
-	f := spinnerMap[s.id]
 
 	s.wg.Add(1)
 	s.spinning = true
 	go func() {
 		defer s.wg.Done()
-		f(s)
+		spinnerTemplate(s)
 	}()
 	return
 }
@@ -82,12 +82,13 @@ func (s *Spinner) Stop() {
 func New(id uint, interval time.Duration, preTextGen, postTextGen func() string, doneText string, forground, background string) (*Spinner, error) {
 	temp := new(Spinner)
 
-	_, ok := spinnerMap[id]
+	_, ok := SpinnerMap[id]
 	if !ok {
 		return nil, fmt.Errorf("%d is not a valid id", id)
 	}
 	temp.id = id
 	temp.interval = interval
+	temp.symbols = SpinnerMap[id]
 
 	if preTextGen == nil {
 		temp.preTextGen = func() string { return "" }

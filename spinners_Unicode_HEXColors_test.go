@@ -18,7 +18,7 @@ func TestUnicode_HEXSpinners(t *testing.T) {
 		timmer = 0
 	}
 
-	for k := range spinnerMap {
+	for k := range SpinnerMap {
 		if k < 100 {
 			continue
 		}
