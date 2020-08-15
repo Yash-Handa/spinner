@@ -6,7 +6,7 @@ on:
       goVersion:
         description: 'Go version to run on (>= v1.15.0)'
         required: true
-        default: 1.15
+        default: '1.15.0'
         
 jobs:
 
@@ -16,12 +16,13 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
+    
     steps:
 
     - name: Set up Go 1.x
       uses: actions/setup-go@v2
       with:
-        go-version: ${{ github.event.inputs.name }}
+        go-version: ${{ github.event.inputs.goVersion }}
       id: go
 
     - name: Check out code into the Go module directory
