@@ -37,9 +37,10 @@ jobs:
         
     - name: Test only (Windows)
       if: matrix.os == 'windows-latest'
+      shell: cmd
       run: |
         go mod tidy
-        go test -short .
+        go test -short -coverprofile=coverage.out -covermode=atomic .
         
     - name: Upload coverage to Codecov (ubuntu and mac)
       if: matrix.os != 'windows-latest'
