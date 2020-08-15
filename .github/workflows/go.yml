@@ -29,12 +29,20 @@ jobs:
       run: |
         go get -v -t -d ./...
 
-    - name: Test and Generate coverage report
+    - name: Test and Generate coverage report (ubuntu and mac)
+      if: ${{ matrix.os }} != windows-latest
       run: |
         go mod tidy
-        go test -short -coverprofile=coverage.out
+        go test -short -coverprofile=coverage.out -covermode=atomic .
         
-    - name: Upload coverage to Codecov
+    - name: Test only (Windows)
+      if: ${{ matrix.os }} == windows-latest
+      run: |
+        go mod tidy
+        go test -short .
+        
+    - name: Upload coverage to Codecov (ubuntu and mac)
+      if: ${{ matrix.os }} != windows-latest
       uses: codecov/codecov-action@v1
       with:
         file: ./coverage.out
