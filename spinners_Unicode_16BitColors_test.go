@@ -1,10 +1,11 @@
-package spinner
+package spinner_test
 
 import (
 	"fmt"
 	"testing"
 	"time"
 
+	"github.com/Yash-Handa/spinner"
 	"github.com/gookit/color"
 )
 
@@ -18,13 +19,13 @@ func TestUnicode_16BitSpinners(t *testing.T) {
 		timmer = 0
 	}
 
-	for k := range SpinnerMap {
+	for k := range spinner.SpinnerMap {
 		if k < 1000 {
 			continue
 		}
 
 		t.Run(fmt.Sprintf("Spinner ID=%d", k), func(st *testing.T) {
-			sp, err := New(k, 100*time.Millisecond, func() string { return "The starting text  " }, func() string { return fmt.Sprintf("  Spinner ID = %d", k) }, fmt.Sprintf("Hurray spinner no. %d done", k), random16BitCode(), Normal)
+			sp, err := spinner.New(k, 100*time.Millisecond, func() string { return "The starting text  " }, func() string { return fmt.Sprintf("  Spinner ID = %d", k) }, fmt.Sprintf("Hurray spinner no. %d done", k), spinner.Random16BitColor(), spinner.Normal)
 			if err != nil {
 				st.Fatal(color.Error.Sprint(err) + "\n")
 			}
