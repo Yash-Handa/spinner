@@ -32,7 +32,7 @@ jobs:
     - name: Test and Generate coverage report
       run: |
         go mod tidy
-        go test -short -coverprofile=coverage.out -covermode=atomic
+        go test -short -coverprofile=coverage.out
         
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
