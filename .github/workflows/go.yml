@@ -42,7 +42,7 @@ jobs:
         go mod tidy
         go test -short -coverprofile=coverage.out -covermode=atomic .
         
-    - name: Upload coverage to Codecov (ubuntu and mac)
+    - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
         file: ./coverage.out

@@ -33,13 +33,23 @@ jobs:
         go get -v -t -d ./...
         go mod tidy
 
-    - name: Test and Generate coverage report
-      run: go test -short -coverprofile=coverage.txt -covermode=atomic .
+    - name: Test and Generate coverage report (ubuntu and mac)
+      if: matrix.os != 'windows-latest'
+      run: |
+        go mod tidy
+        go test -short -coverprofile=coverage.out -covermode=atomic .
+        
+    - name: Test and Generate coverage report (Windows)
+      if: matrix.os == 'windows-latest'
+      shell: cmd
+      run: |
+        go mod tidy
+        go test -short -coverprofile=coverage.out -covermode=atomic .
         
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
-        file: ./coverage.txt
+        file: ./coverage.out
         env_vars: ${{ matrix.os }},GO
 #         name: codecov-umbrella
 #         path_to_write_report: ./coverage/codecov_report.gz
