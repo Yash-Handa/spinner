@@ -1,6 +1,6 @@
 /*Package spinner is Command line spinner library.
 
-Have 100+ spinners, Segregated into ASCII(id: 1-999) and Unitcode(id >= 1000) spinners and even custom (user-definned) spinners !!!
+Have 80+ spinners, Segregated into ASCII(id: 1-999) and Unitcode(id >= 1000) spinners and even custom (user-definned) spinners !!!
 
 Support rich color rendering output for the spinners (in both 16bit colors and Hexcodes), universal API method, compatible with Windows system.
 
