@@ -152,10 +152,10 @@ func (s *Spinner) SetInterval(t time.Duration) {
 // Default: The default value or zero values are forground = spinner.Normal and background = spinner.Normal. Incase of any erroneous value these defaults are used.
 //
 // Note:
-//  -> Both the forground and background should be either of 16-Bit type (Constants are defined at the starting of the package like spinner.Red, etc)
-//     or Hex type (like "00e600", "#00E600", "ccc", etc) but not a combination of both
 //
-//  -> If an empty string is provided as the value of background then the priviously used background value is used
+// i. Both the forground and background should be either of 16-Bit type (Constants are defined at the starting of the package like spinner.Red, etc) or Hex type (like "00e600", "#00E600", "ccc", etc) but not a combination of both
+//
+// ii. If an empty string is provided as the value of background then the priviously used background value is used
 func (s *Spinner) SetColor(forground, background string) {
 	if background == "" {
 		background = s.bg
@@ -212,25 +212,29 @@ func (s *Spinner) Stop() {
 // New creates a new spinner based on the ID provided.
 //
 // Parameters:
-//  id: it is a uint mapped a pre-defined spinners. If the id is invalid an error will occur
+//  id: it is a uint mapped a pre-defined spinners.
+//      If the id is invalid an error will occur
 //      id from 1 to 999 represent ASCII spinners (supported on all terminals)
-//      id >= 1000 represent Unicode point spinners (supported by terminals which are UTF-8 encoded)
+//      id >= 1000 represent Unicode point spinners (supported by terminals which
+//      are UTF-8 encoded)
 //
 //  interval: it is of type time.Duration and sets the refresh rate of the spinner
-//            (the time frame after which spinner will be updated). If 0 is provided the
-//            default value of 100 * time.Millisecond will be
+//            (the time frame after which spinner will be updated). If 0 is
+//            provided the default value of 100 * time.Millisecond will be
 //
-//  forground: it could be a 16-Bit type (16-bit colors are defined as constants at the
-//             starting of the package like spinner.Red, etc) or Hex type (strings like
-//             "00e600", "#00E600", "ccc", etc). Empty string will use spinner.Normal
+//  forground: it could be a 16-Bit type (16-bit colors are defined as constants at
+//             the starting of the package like spinner.Red, etc) or Hex type
+//             (strings like "00e600", "#00E600", "ccc", etc). Empty string will
+//             use spinner.Normal
 //
-//  background: it could be a 16-Bit type (16-bit colors are defined as constants at the
-//             starting of the package like spinner.Red, etc) or Hex type (strings like
-//             "00e600", "#00E600", "ccc", etc). Empty string will use spinner.Normal
+//  background: it could be a 16-Bit type (16-bit colors are defined as constants
+//              at the starting of the package like spinner.Red, etc) or Hex type
+//              (strings like "00e600", "#00E600", "ccc", etc). Empty string will
+//              use spinner.Normal
 //
-//  Note- forground and background should be of the same form either both will be 16-bit
-//  colors or both will be hex. Not a combination. In case of any error in resolving
-//  colors both forground and background will use spinner.Normal
+//  Note- forground and background should be of the same form either both will be
+//  16-bit colors or both will be hex. Not a combination. In case of any error in
+//  resolving colors both forground and background will use spinner.Normal
 //
 // Example:
 //  package main
@@ -294,24 +298,26 @@ func New(id uint, interval time.Duration, forground, background string) (*Spinne
 // Custom creates a new spinner based on user defined symbols (a slice of strings).
 //
 // Parameters:
-//  symbols: it is slice of stings used to produce a spinner. All strings in the slice
-//           should be of same size or an error will be returned
+//  symbols : it is slice of stings used to produce a spinner. All strings in the
+//            slice should be of same size or an error will be returned
 //
 //  interval: it is of type time.Duration and sets the refresh rate of the spinner
-//            (the time frame after which spinner will be updated). If 0 is provided the
-//            default value of 100 * time.Millisecond will be
+//            (the time frame after which spinner will be updated). If 0 is
+//            provided the default value of 100 * time.Millisecond will be
 //
-//  forground: it could be a 16-Bit type (16-bit colors are defined as constants at the
-//             starting of the package like spinner.Red, etc) or Hex type (strings like
-//             "00e600", "#00E600", "ccc", etc). Empty string will use spinner.Normal
+//  forground: it could be a 16-Bit type (16-bit colors are defined as constants at
+//             the starting of the package like spinner.Red, etc) or Hex type
+//             (strings like "00e600", "#00E600", "ccc", etc). Empty string will
+//             use spinner.Normal
 //
-//  background: it could be a 16-Bit type (16-bit colors are defined as constants at the
-//             starting of the package like spinner.Red, etc) or Hex type (strings like
-//             "00e600", "#00E600", "ccc", etc). Empty string will use spinner.Normal
+//  background: it could be a 16-Bit type (16-bit colors are defined as constants
+//              at the starting of the package like spinner.Red, etc) or Hex type
+//              (strings like "00e600", "#00E600", "ccc", etc). Empty string will
+//              use spinner.Normal
 //
-//  Note- forground and background should be of the same form either both will be 16-bit
-//  colors or both will be hex. Not a combination. In case of any error in resolving
-//  colors both forground and background will use spinner.Normal
+//  Note- forground and background should be of the same form either both will be
+//  16-bit colors or both will be hex. Not a combination. In case of any error in
+//  resolving colors both forground and background will use spinner.Normal
 //
 // Example:
 //  package main
@@ -334,7 +340,8 @@ func New(id uint, interval time.Duration, forground, background string) (*Spinne
 //
 //  	sp.Start() // the spinner starts
 //  	time.Sleep(3 * time.Second) // after 3 seconds the color changes to lime green
-//  	sp.SetColor("00e600", spinner.HexBgNormal) // spinner.HexBgNormal is used with Hex forground to indicate that no background color to be used
+//  	sp.SetColor("00e600", spinner.HexBgNormal)
+//  	// spinner.HexBgNormal is used with Hex forground to indicate that no background color to be used
 //  	sp.SetPostText("  The color Changed !!")
 //  	time.Sleep(3 * time.Second)
 //  	sp.Stop() // the spinner stops

@@ -64,6 +64,18 @@ func TestMethods(t *testing.T) {
 		}
 	})
 
+	t.Run("it should change color", func(st *testing.T) {
+		sp.SetColor(spinner.Black, spinner.White)
+		sp.SetColor(spinner.White, spinner.Black)
+		sp.SetColor(spinner.Red, spinner.Yellow)
+		sp.SetColor(spinner.Yellow, spinner.Red)
+		sp.SetColor(spinner.Blue, spinner.Green)
+		sp.SetColor(spinner.Green, spinner.Blue)
+		sp.SetColor(spinner.Cyan, spinner.Magenta)
+		sp.SetColor(spinner.Magenta, spinner.Cyan)
+		sp.Restart()
+	})
+
 	t.Run("it should set and get interval", func(st *testing.T) {
 		want := 300 * time.Millisecond
 		sp.SetInterval(want)
