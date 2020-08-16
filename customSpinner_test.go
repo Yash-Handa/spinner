@@ -22,7 +22,7 @@ func TestCustomSpinner(t *testing.T) {
 	}
 
 	symbols := []string{"N   ", "IN  ", "PIN ", "SPIN", " SPI", "  SP", "   S", "    "}
-	sp, err := spinner.Custom(symbols, 100*time.Millisecond, spinner.Random16BitColor(), spinner.Normal)
+	sp, err := spinner.Custom(symbols, 0, spinner.Random16BitColor(), spinner.Normal)
 	if err != nil {
 		t.Fatal(color.Error.Sprint(err) + "\n")
 	}

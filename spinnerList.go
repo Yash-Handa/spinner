@@ -1,6 +1,7 @@
 package spinner
 
-// SpinnerMap yo
+// SpinnerMap maps spinner IDs to spinner symbols.
+// No real use-case other than inspiration and documentation
 var SpinnerMap = map[uint][]string{
 	1:  {"|", "/", "-", "|", "\\"},
 	2:  {"[   ]", "[=  ]", "[ = ]", "[  =]"},
