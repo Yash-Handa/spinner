@@ -14,4 +14,4 @@ Documentation of the API is hosted at [pkg.go.dev](https://pkg.go.dev/github.com
 
 ### Todo
 
-- Make proper README.ms
+- Make proper README.md
