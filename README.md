@@ -8,8 +8,10 @@
 
 Platform independent Go module to print spinners on Terminal/ cmd
 
-## Today Todo
+## Documentation
 
-- Add documentation
-- checkout github Action or ci
-- add badges on readme
+Documentation of the API is hosted at [pkg.go.dev](https://pkg.go.dev/github.com/Yash-Handa/spinner)
+
+### Todo
+
+- Make proper README.ms
