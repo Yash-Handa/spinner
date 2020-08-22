@@ -14,14 +14,39 @@ Documentation of the API is hosted at [pkg.go.dev](https://pkg.go.dev/github.com
 
 ## Spinners
 
-**ASCII Spinners (ID: 1 to 999)**
-
-| ![""](/.github/gifs/1-80.gif) | ![""](/.github/gifs/2-140.gif) | ![""](/.github/gifs/3-100.gif) |
-| ID: 1 Inter: 80ms   | ID: 2 Inter: 140ms  | ID: 3 Inter: 100ms  |
-|:-------------------:|:-------------------:|:-------------------:|
-| ![""](/.github/gifs/4-100.gif) | ![""](/.github/gifs/5-120.gif) | ![""](/.github/gifs/6-120.gif) |
-| ID: 4 Inter: 100ms  | ID: 5 Inter: 120ms  | ID: 6 Inter: 120ms  |
-|:-------------------:|:-------------------:|:-------------------:|
+<table>
+  <caption>ASCII Spinners (ID 1 to 999)</caption>
+  <tr>
+    <td><img src="/.github/gifs/1-80.gif" alt="ID: 1 Inter: 80ms"></td>
+    <td><img src="/.github/gifs/2-140.gif" alt="ID: 2 Inter: 140ms"></td>
+    <td><img src="/.github/gifs/3-100.gif" alt="ID: 3 Inter: 100ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 1 Inter: 80ms</th>
+    <th>ID: 2 Inter: 140ms</th>
+    <th>ID: 3 Inter: 100ms</th>
+  </tr>
+  <tr>
+    <td><img src="/.github/gifs/4-100.gif" alt="ID: 4 Inter: 100ms"></td>
+    <td><img src="/.github/gifs/5-120.gif" alt="ID: 5 Inter: 120ms"></td>
+    <td><img src="/.github/gifs/6-120.gif" alt="ID: 6 Inter: 120ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 4 Inter: 100ms</th>
+    <th>ID: 5 Inter: 120ms</th>
+    <th>ID: 6 Inter: 120ms</th>
+  </tr>
+  <tr>
+    <td><img src="/.github/gifs/7-100.gif" alt="ID: 7 Inter: 100ms"></td>
+    <td><img src="/.github/gifs/8-120.gif" alt="ID: 8 Inter: 120ms"></td>
+    <td><img src="/.github/gifs/9-100.gif" alt="ID: 9 Inter: 100ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 7 Inter: 100ms</th>
+    <th>ID: 8 Inter: 120ms</th>
+    <th>ID: 9 Inter: 100ms</th>
+  </tr>
+</table>
 
 ### Todo
 
