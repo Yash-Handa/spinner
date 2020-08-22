@@ -14,8 +14,9 @@ Documentation of the API is hosted at [pkg.go.dev](https://pkg.go.dev/github.com
 
 ## Spinners
 
+### ASCII Spinners (ID 1 to 999)
+
 <table>
-  <caption>ASCII Spinners (ID 1 to 999)</caption>
   <tr>
     <td><img src="/.github/gifs/1-80.gif" alt="ID: 1 Inter: 80ms"></td>
     <td><img src="/.github/gifs/2-140.gif" alt="ID: 2 Inter: 140ms"></td>
