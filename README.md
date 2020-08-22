@@ -12,6 +12,17 @@ Platform independent Go module to print spinners on Terminal/ cmd
 
 Documentation of the API is hosted at [pkg.go.dev](https://pkg.go.dev/github.com/Yash-Handa/spinner)
 
+## Spinners
+
+**ASCII Spinners (ID: 1 to 999)**
+
+| ![""](/.github/gifs/1-80.gif) | ![""](/.github/gifs/2-140.gif) | ![""](/.github/gifs/3-100.gif) |
+| ID: 1 Inter: 80ms   | ID: 2 Inter: 140ms  | ID: 3 Inter: 100ms  |
+|:-------------------:|:-------------------:|:-------------------:|
+| ![""](/.github/gifs/4-100.gif) | ![""](/.github/gifs/5-120.gif) | ![""](/.github/gifs/6-120.gif) |
+| ID: 4 Inter: 100ms  | ID: 5 Inter: 120ms  | ID: 6 Inter: 120ms  |
+|:-------------------:|:-------------------:|:-------------------:|
+
 ### Todo
 
 - Make proper README.md

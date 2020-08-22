@@ -247,16 +247,16 @@ func (s *Spinner) Stop() {
 //  )
 //
 //  func main() {
-//  	sp, err := spinner.Custom(4, 50 * time.Millisecond, spinner.Cyan, spinner.Normal)
+//  	sp, err := spinner.New(4, 50 * time.Millisecond, spinner.Cyan, spinner.Normal)
 //  	if err != nil {
 //  		log.Fatal(err)
 //  	}
 //
-//  	sp.SetPostText("  A custom spinner")
+//  	sp.SetPostText("  Loading Content")
 //  	sp.SetDoneText("Hurray spinner worked\n")
 //
-//  	sp.Start() // the spinner starts
-//  	time.Sleep(3 * time.Second) // after 3 seconds
+//  	sp.Start()                       // the spinner starts
+//  	time.Sleep(3 * time.Second)      // after 3 seconds
 //  	sp.SetColor(spinner.Magenta, "") // use previous background color
 //  	sp.SetInterval(100 * time.Millisecond)
 //  	sp.SetPostText("  The color and speed Changed !!")
@@ -338,7 +338,7 @@ func New(id uint, interval time.Duration, forground, background string) (*Spinne
 //
 //  	sp.SetPostText("  A custom spinner")
 //
-//  	sp.Start() // the spinner starts
+//  	sp.Start()                  // the spinner starts
 //  	time.Sleep(3 * time.Second) // after 3 seconds the color changes to lime green
 //  	sp.SetColor("00e600", spinner.HexBgNormal)
 //  	// spinner.HexBgNormal is used with Hex forground to indicate that no background color to be used
