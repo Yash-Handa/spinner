@@ -1,18 +1,37 @@
 # spinner
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c0c8fe5903194ebcbe781a8c3966d249)](https://app.codacy.com/manual/yashhanda7/spinner?utm_source=github.com&utm_medium=referral&utm_content=Yash-Handa/spinner&utm_campaign=Badge_Grade_Dashboard)
+[![Go Report Card](https://goreportcard.com/badge/github.com/Yash-Handa/spinner)](https://goreportcard.com/report/github.com/Yash-Handa/spinner)
 [![codecov](https://codecov.io/gh/Yash-Handa/spinner/branch/master/graph/badge.svg)](https://codecov.io/gh/Yash-Handa/spinner)
 ![Go](https://github.com/Yash-Handa/spinner/workflows/Go/badge.svg)
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/Yash-Handa/spinner)](https://pkg.go.dev/github.com/Yash-Handa/spinner)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/Yash-Handa/spinner.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Yash-Handa/spinner/alerts/)
+[![GitHub go.mod Go version of a Go module](https://img.shields.io/github/go-mod/go-version/Yash-Handa/spinner.svg)](https://github.com/Yash-Handa/spinner)
+[![GitHub release](https://img.shields.io/github/release/Yash-Handa/spinner.svg)](https://GitHub.com/Yash-Handa/spinner)
 
 Platform independent Go module to print spinners on Terminal/ cmd
 
+## Overview / Features
+
+- Have 80+ spinners, Segregated into ASCII(id: 1-999) and Unicode(id >= 1000) spinners
+
+-  Custom (user-defined) spinners
+
+- Support rich color rendering output for the spinners (in both 16bit colors and Hexcodes)
+
+- Colors compatible with Windows system.
+
+- Universal and Stable API method
+
+- Made with concurrency handling in mind
+
 ## Documentation
 
-Documentation of the API is hosted at [pkg.go.dev](https://pkg.go.dev/github.com/Yash-Handa/spinner)
+Complete documentation of the API is hosted at [pkg.go.dev](https://pkg.go.dev/github.com/Yash-Handa/spinner)
 
 ## Spinners
+
+Below Tables show spinners with their IDs. Use it as reference
 
 ### ASCII Spinners (ID 1 to 999)
 
@@ -300,6 +319,7 @@ Documentation of the API is hosted at [pkg.go.dev](https://pkg.go.dev/github.com
   </tr>
 </table>
 
-### Todo
 
-- Make proper README.md
+## Contributions
+
+The Project is Open Sourced under [MIT]("/LICENSE") License and will always welcomes Pull Request. Please read Contribtion.md.
