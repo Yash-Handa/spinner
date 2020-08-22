@@ -320,6 +320,76 @@ Below Tables show spinners with their IDs. Use it as reference
 </table>
 
 
+## Working Examples
+
+These are simple examples. For more Indepth uses refer the API documentation hosted at [pkg.go.dev](https://pkg.go.dev/github.com/Yash-Handa/spinner)
+
+### New Spinner
+
+The following code creates a new spinner and uses it
+
+```go
+package main
+
+import (
+	"time"
+	"log"
+
+	spinner "github.com/Yash-Handa/spinner"
+)
+
+func main() {
+	sp, err := spinner.New(4, 50 * time.Millisecond, spinner.Cyan, spinner.Normal)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	sp.SetPostText("  Loading Content")
+	sp.SetDoneText("Hurray spinner worked\n")
+
+	sp.Start()                       // the spinner starts
+	time.Sleep(3 * time.Second)      // after 3 seconds
+	sp.SetColor(spinner.Magenta, "") // use previous background color
+	sp.SetInterval(100 * time.Millisecond)
+	sp.SetPostText("  The color and speed Changed !!")
+	time.Sleep(3 * time.Second)
+	sp.Stop() // the spinner stops
+}
+```
+
+### Custom Spinner
+
+The following code creates a custom spinner using user defined symbols.
+
+```go
+package main
+
+import (
+	"time"
+	"log"
+
+	spinner "github.com/Yash-Handa/spinner"
+)
+
+func main() {
+	symbols := []string{"N   ", "IN  ", "PIN ", "SPIN", " SPI", "  SP", "   S", "    "}
+	sp, err := spinner.Custom(symbols, 0, spinner.Red, spinner.Normal)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	sp.SetPostText("  A custom spinner")
+
+	sp.Start()                  // the spinner starts
+	time.Sleep(3 * time.Second) // after 3 seconds the color changes to lime green
+	sp.SetColor("00e600", spinner.HexBgNormal)
+	// spinner.HexBgNormal is used with Hex forground to indicate that no background color to be used
+	sp.SetPostText("  The color Changed !!")
+	time.Sleep(3 * time.Second)
+	sp.Stop() // the spinner stops
+}
+```
+
 ## Contributions
 
-The Project is Open Sourced under [MIT]("/LICENSE") License and will always welcomes Pull Request. Please read Contribtion.md.
+The Project is Open Sourced under [MIT](/LICENSE) License and will always welcomes Pull Request. Please read Contribtion.md.
