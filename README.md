@@ -97,6 +97,209 @@ Documentation of the API is hosted at [pkg.go.dev](https://pkg.go.dev/github.com
   </tr>
 </table>
 
+### Unicode Spinners (ID >= 1000)
+
+<table>
+  <tr>
+    <td><img src="/.github/gifs/1000-80.gif" alt="ID: 1000 Inter: 80ms"></td>
+    <td><img src="/.github/gifs/1001-80.gif" alt="ID: 1001 Inter: 80ms"></td>
+    <td><img src="/.github/gifs/1002-80.gif" alt="ID: 1002 Inter: 80ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 1000 Inter: 80ms</th>
+    <th>ID: 1001 Inter: 80ms</th>
+    <th>ID: 1002 Inter: 80ms</th>
+  </tr>
+  <tr>
+    <td><img src="/.github/gifs/1003-80.gif" alt="ID: 1003 Inter: 80ms"></td>
+    <td><img src="/.github/gifs/1004-100.gif" alt="ID: 1004 Inter: 100ms"></td>
+    <td><img src="/.github/gifs/1005-100.gif" alt="ID: 1005 Inter: 100ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 1003 Inter: 80ms</th>
+    <th>ID: 1004 Inter: 100ms</th>
+    <th>ID: 1005 Inter: 100ms</th>
+  </tr>
+  <tr>
+    <td><img src="/.github/gifs/1006-100.gif" alt="ID: 1006 Inter: 100ms"></td>
+    <td><img src="/.github/gifs/1007-80.gif" alt="ID: 1007 Inter: 80ms"></td>
+    <td><img src="/.github/gifs/1008-100.gif" alt="ID: 1008 Inter: 100ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 1006 Inter: 100ms</th>
+    <th>ID: 1007 Inter: 80ms</th>
+    <th>ID: 1008 Inter: 100ms</th>
+  </tr>
+  <tr>
+    <td><img src="/.github/gifs/1009-80.gif" alt="ID: 1009 Inter: 80ms"></td>
+    <td><img src="/.github/gifs/1010-140.gif" alt="ID: 1010 Inter: 140ms"></td>
+    <td><img src="/.github/gifs/1011-120.gif" alt="ID: 1011 Inter: 120ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 1009 Inter: 80ms</th>
+    <th>ID: 1010 Inter: 140ms</th>
+    <th>ID: 1011 Inter: 120ms</th>
+  </tr>
+  <tr>
+    <td><img src="/.github/gifs/1012-100.gif" alt="ID: 1012 Inter: 100ms"></td>
+    <td><img src="/.github/gifs/1013-200.gif" alt="ID: 1013 Inter: 200ms"></td>
+    <td><img src="/.github/gifs/1014-120.gif" alt="ID: 1014 Inter: 120ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 1012 Inter: 100ms</th>
+    <th>ID: 1013 Inter: 200ms</th>
+    <th>ID: 1014 Inter: 120ms</th>
+  </tr>
+  <tr>
+    <td><img src="/.github/gifs/1015-100.gif" alt="ID: 1015 Inter: 100ms"></td>
+    <td><img src="/.github/gifs/1016-180.gif" alt="ID: 1016 Inter: 180ms"></td>
+    <td><img src="/.github/gifs/1017-120.gif" alt="ID: 1017 Inter: 120ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 1015 Inter: 100ms</th>
+    <th>ID: 1016 Inter: 180ms</th>
+    <th>ID: 1017 Inter: 120ms</th>
+  </tr>
+  <tr>
+    <td><img src="/.github/gifs/1018-120.gif" alt="ID: 1018 Inter: 120ms"></td>
+    <td><img src="/.github/gifs/1019-100.gif" alt="ID: 1019 Inter: 100ms"></td>
+    <td><img src="/.github/gifs/1020-80.gif" alt="ID: 1020 Inter: 80ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 1018 Inter: 120ms</th>
+    <th>ID: 1019 Inter: 100ms</th>
+    <th>ID: 1020 Inter: 80ms</th>
+  </tr>
+  <tr>
+    <td><img src="/.github/gifs/1021-80.gif" alt="ID: 1021 Inter: 80ms"></td>
+    <td><img src="/.github/gifs/1022-80.gif" alt="ID: 1022 Inter: 80ms"></td>
+    <td><img src="/.github/gifs/1023-80.gif" alt="ID: 1023 Inter: 80ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 1021 Inter: 80ms</th>
+    <th>ID: 1022 Inter: 80ms</th>
+    <th>ID: 1023 Inter: 80ms</th>
+  </tr>
+  <tr>
+    <td><img src="/.github/gifs/1024-80.gif" alt="ID: 1024 Inter: 80ms"></td>
+    <td><img src="/.github/gifs/1025-100.gif" alt="ID: 1025 Inter: 100ms"></td>
+    <td><img src="/.github/gifs/1026-80.gif" alt="ID: 1026 Inter: 80ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 1024 Inter: 80ms</th>
+    <th>ID: 1025 Inter: 100ms</th>
+    <th>ID: 1026 Inter: 80ms</th>
+  </tr>
+  <tr>
+    <td><img src="/.github/gifs/1027-80.gif" alt="ID: 1027 Inter: 80ms"></td>
+    <td><img src="/.github/gifs/1028-80.gif" alt="ID: 1028 Inter: 80ms"></td>
+    <td><img src="/.github/gifs/1029-80.gif" alt="ID: 1029 Inter: 80ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 1027 Inter: 80ms</th>
+    <th>ID: 1028 Inter: 80ms</th>
+    <th>ID: 1029 Inter: 80ms</th>
+  </tr>
+  <tr>
+    <td><img src="/.github/gifs/1030-100.gif" alt="ID: 1030 Inter: 100ms"></td>
+    <td><img src="/.github/gifs/1031-200.gif" alt="ID: 1031 Inter: 200ms"></td>
+    <td><img src="/.github/gifs/1032-100.gif" alt="ID: 1032 Inter: 100ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 1030 Inter: 100ms</th>
+    <th>ID: 1031 Inter: 200ms</th>
+    <th>ID: 1032 Inter: 100ms</th>
+  </tr>
+  <tr>
+    <td><img src="/.github/gifs/1033-100.gif" alt="ID: 1033 Inter: 100ms"></td>
+    <td><img src="/.github/gifs/1034-180.gif" alt="ID: 1034 Inter: 180ms"></td>
+    <td><img src="/.github/gifs/1035-150.gif" alt="ID: 1035 Inter: 150ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 1033 Inter: 100ms</th>
+    <th>ID: 1034 Inter: 180ms</th>
+    <th>ID: 1035 Inter: 150ms</th>
+  </tr>
+  <tr>
+    <td><img src="/.github/gifs/1036-120.gif" alt="ID: 1036 Inter: 120ms"></td>
+    <td><img src="/.github/gifs/1037-120.gif" alt="ID: 1037 Inter: 120ms"></td>
+    <td><img src="/.github/gifs/1038-180.gif" alt="ID: 1038 Inter: 180ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 1036 Inter: 120ms</th>
+    <th>ID: 1037 Inter: 120ms</th>
+    <th>ID: 1038 Inter: 180ms</th>
+  </tr>
+  <tr>
+    <td><img src="/.github/gifs/1039-180.gif" alt="ID: 1039 Inter: 180ms"></td>
+    <td><img src="/.github/gifs/1040-180.gif" alt="ID: 1040 Inter: 180ms"></td>
+    <td><img src="/.github/gifs/1041-180.gif" alt="ID: 1041 Inter: 180ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 1039 Inter: 180ms</th>
+    <th>ID: 1040 Inter: 180ms</th>
+    <th>ID: 1041 Inter: 180ms</th>
+  </tr>
+  <tr>
+    <td><img src="/.github/gifs/1042-150.gif" alt="ID: 1042 Inter: 150ms"></td>
+    <td><img src="/.github/gifs/1043-150.gif" alt="ID: 1043 Inter: 150ms"></td>
+    <td><img src="/.github/gifs/1044-150.gif" alt="ID: 1044 Inter: 150ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 1042 Inter: 150ms</th>
+    <th>ID: 1043 Inter: 150ms</th>
+    <th>ID: 1044 Inter: 150ms</th>
+  </tr>
+  <tr>
+    <td><img src="/.github/gifs/1045-150.gif" alt="ID: 1045 Inter: 150ms"></td>
+    <td><img src="/.github/gifs/1046-140.gif" alt="ID: 1046 Inter: 140ms"></td>
+    <td><img src="/.github/gifs/1047-150.gif" alt="ID: 1047 Inter: 150ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 1045 Inter: 150ms</th>
+    <th>ID: 1046 Inter: 140ms</th>
+    <th>ID: 1047 Inter: 150ms</th>
+  </tr>
+  <tr>
+    <td><img src="/.github/gifs/1048-150.gif" alt="ID: 1048 Inter: 150ms"></td>
+    <td><img src="/.github/gifs/1049-120.gif" alt="ID: 1049 Inter: 120ms"></td>
+    <td><img src="/.github/gifs/1050-150.gif" alt="ID: 1050 Inter: 150ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 1048 Inter: 150ms</th>
+    <th>ID: 1049 Inter: 120ms</th>
+    <th>ID: 1050 Inter: 150ms</th>
+  </tr>
+  <tr>
+    <td><img src="/.github/gifs/1051-120.gif" alt="ID: 1051 Inter: 120ms"></td>
+    <td><img src="/.github/gifs/1052-150.gif" alt="ID: 1052 Inter: 150ms"></td>
+    <td><img src="/.github/gifs/1053-100.gif" alt="ID: 1053 Inter: 100ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 1051 Inter: 120ms</th>
+    <th>ID: 1052 Inter: 150ms</th>
+    <th>ID: 1053 Inter: 100ms</th>
+  </tr>
+  <tr>
+    <td><img src="/.github/gifs/1054-100.gif" alt="ID: 1054 Inter: 100ms"></td>
+    <td><img src="/.github/gifs/1055-100.gif" alt="ID: 1055 Inter: 100ms"></td>
+    <td><img src="/.github/gifs/1056-100.gif" alt="ID: 1056 Inter: 100ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 1054 Inter: 100ms</th>
+    <th>ID: 1055 Inter: 100ms</th>
+    <th>ID: 1056 Inter: 100ms</th>
+  </tr>
+  <tr>
+    <td><img src="/.github/gifs/1057-200.gif" alt="ID: 1057 Inter: 200ms"></td>
+    <td><img src="/.github/gifs/1058-180.gif" alt="ID: 1058 Inter: 180ms"></td>
+  </tr>
+  <tr>
+    <th>ID: 1057 Inter: 200ms</th>
+    <th>ID: 1058 Inter: 180ms</th>
+  </tr>
+</table>
+
 ### Todo
 
 - Make proper README.md
